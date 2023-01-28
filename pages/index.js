@@ -7,7 +7,7 @@ export default function Home({ blog }) {
       <ul>
         {blog.map((blog) => (
           <li key={blog.id}>
-            <Link href={`/blog/${blog.id}`}>{blog.title}</Link>
+            <Link href={`/blog-test/${blog.id}`}>{blog.title}</Link>
           </li>
         ))}
       </ul>
@@ -18,7 +18,7 @@ export default function Home({ blog }) {
 // データをテンプレートに受け渡す部分の処理を記述します
 // ビルド時にサーバ側で呼ばれる！
 export const getStaticProps = async () => {
-  const data = await client.get({ endpoint: "blog" });
+  const data = await client.get({ endpoint: "blog-test" });
 
   return {
     props: {
