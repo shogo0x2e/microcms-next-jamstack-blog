@@ -1,19 +1,36 @@
 // pages/blog/[id].js
-import { client } from "../../libs/client";
+
+import { client } from '../../libs/client';
+import styles from '../../styles/Home.module.scss';
 
 export default function BlogId({ blog }) {
   return (
-    <main>
-      <h1>{blog.title}</h1>
-      <p>{blog.publishedAt}</p>
+    <main className={styles.main}>
+      <h1 className={styles.title}>{blog.title}</h1>
+      <p className={styles.publishedAt}>{blog.publishedAt}</p>
       <div
         dangerouslySetInnerHTML={{
           __html: `${blog.body}`,
         }}
+        className={styles.post}
       />
     </main>
   );
 }
+
+// export default function BlogId({ blog }) {
+//   return (
+//     <main>
+//       <h1>{blog.title}</h1>
+//       <p>{blog.publishedAt}</p>
+//       <div
+//         dangerouslySetInnerHTML={{
+//           __html: `${blog.body}`,
+//         }}
+//       />
+//     </main>
+//   );
+// }
 
 // 静的生成のためのパスを指定します
 export const getStaticPaths = async () => {
